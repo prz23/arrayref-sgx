@@ -7,5 +7,8 @@ license = "BSD-2-Clause"
 repository = "https://github.com/droundy/arrayref"
 documentation = "https://docs.rs/arrayref"
 
+[dependencies]
+sgx_tstd = { rev = "v1.1.3", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
+
 [dev-dependencies]
 quickcheck = "0.6"
