@@ -78,7 +78,14 @@ pub extern "C" fn say_something(some_string: *const u8, some_len: usize) -> sgx_
     // Ocall to normal world for output
     println!("{}", &hello_string);
 
-    rsgx_unit_tests!(arrayref_tests::test_arrayref,);
+    rsgx_unit_tests!(
+    arrayref_tests::test_arrayref,
+    arrayref_tests::simple_case_works,
+    arrayref_tests::test_5_array_refs,
+    arrayref_tests::test_5_array_refs_dotdot,
+    arrayref_tests::test_5_mut_xarray_refs,
+    arrayref_tests::test_5_mut_xarray_refs_with_dotdot,
+    );
 
     sgx_status_t::SGX_SUCCESS
 }
