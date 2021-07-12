@@ -48,6 +48,8 @@ use sgx_tunittest::*;
 
 extern crate arrayref;
 
+mod  arrayref_tests;
+
 #[no_mangle]
 pub extern "C" fn say_something(some_string: *const u8, some_len: usize) -> sgx_status_t {
 
@@ -75,6 +77,8 @@ pub extern "C" fn say_something(some_string: *const u8, some_len: usize) -> sgx_
 
     // Ocall to normal world for output
     println!("{}", &hello_string);
-    
+
+    rsgx_unit_tests!(arrayref_tests::test_arrayref,);
+
     sgx_status_t::SGX_SUCCESS
 }
